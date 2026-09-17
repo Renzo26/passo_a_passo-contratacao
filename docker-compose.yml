@@ -1,0 +1,16 @@
+services:
+  # Apresentação (React/Vite servida por Nginx). Sem back-end: o deck é
+  # inteiramente estático, não há chamada de API.
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      - easypanel
+
+networks:
+  easypanel:
+    external: true

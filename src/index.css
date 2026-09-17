@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   DESIGN SYSTEM — Passo a passo: contratação de VPS
+   ------------------------------------------------------------
+   Branco, preto e vermelho. Mesma identidade da apresentação da
+   Cloudy Solutions — qualquer ajuste de marca vale para os dois.
+   ============================================================ */
+@theme {
+  --font-display: 'Archivo', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Tinta (preto azulado da marca) */
+  --color-ink: oklch(0.16 0.01 264);
+  --color-ink-soft: oklch(0.3 0.01 264);
+
+  /* Vermelho — o primário */
+  --color-blood: oklch(0.545 0.232 27.5);
+  --color-blood-strong: oklch(0.46 0.235 27);
+
+  /* Superfícies */
+  --color-paper: oklch(1 0 0);
+  --color-paper-2: oklch(0.975 0.004 264);
+  --color-line: oklch(0.91 0.006 264);
+  --color-muted: oklch(0.48 0.02 264);
+
+  /* Painel invertido — o bloco escuro que ancora a página */
+  --color-panel: oklch(0.16 0.01 264);
+  --color-panel-fg: oklch(0.98 0.002 264);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--color-paper);
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* o deck controla a navegação; nada de scroll de página */
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: var(--color-blood);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-stretch: 95%;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blood);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ------------------------------------------------------------
+   Utilitários da marca (`@utility` = aceita variantes)
+   ------------------------------------------------------------ */
+
+/* Label pequeno em caixa alta acima dos títulos — a assinatura
+   tipográfica do projeto do Jayme. */
+@utility eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+/* Textura sutil de grid no fundo, igual à do sistema. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-ink) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-ink) 4%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Cartão padrão: branco sobre a página, borda fina, sombra baixa. */
+@utility card {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px color-mix(in oklab, var(--color-ink) 5%, transparent);
+}
+
+/* Sombra vermelha dos elementos ativos (botão, pílula selecionada). */
+@utility shadow-blood {
+  box-shadow: 0 8px 24px -8px var(--color-blood);
+}
+
+@utility hairline {
+  background: linear-gradient(90deg, var(--color-line), transparent);
+}
+
+/* Barra vermelha curta que abre os títulos — marca de seção. */
+@utility rule-blood {
+  &::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--color-blood);
+    margin-bottom: 1rem;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar discreta, como no sistema. */
+@utility jm-scroll {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-ink) 18%, transparent);
+    border-radius: 999px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
