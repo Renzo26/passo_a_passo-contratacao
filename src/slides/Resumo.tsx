@@ -4,10 +4,10 @@ import { item, stagger } from '../anim'
 
 /** Recapitulação: o slide que fica na tela enquanto a pessoa executa. */
 const PASSOS = [
-  { n: '01', t: 'Entrar no site', d: 'hostinger.com/br/servidor-vps' },
-  { n: '02', t: 'Escolher o plano', d: 'KVM 2 — 2 vCPU, 8 GB, 100 GB NVMe' },
-  { n: '03', t: 'Definir o período', d: 'Mensal, anual ou 2 anos · sem backup automático' },
-  { n: '04', t: 'Sistema operacional', d: 'Ubuntu' },
+  { n: '01', t: 'Abrir o site', d: 'hostinger.com/br/servidor-vps' },
+  { n: '02', t: 'Escolher o plano', d: 'KVM 2 — o recomendado' },
+  { n: '03', t: 'Escolher o tempo', d: 'Mensal, anual ou 2 anos · desmarcando a cópia de segurança' },
+  { n: '04', t: 'Escolher o programa', d: 'Ubuntu' },
 ]
 
 export function Resumo() {
@@ -31,7 +31,8 @@ export function Resumo() {
             variants={item}
             className="max-w-[46ch] text-[0.85rem] leading-relaxed text-muted sm:text-[0.9rem]"
           >
-            Deixe este slide aberto enquanto executa. Ao final você terá IP e senha de root em mãos.
+            Deixe esta tela aberta enquanto faz a contratação. No fim você vai ter a senha e o
+            endereço do servidor anotados.
           </motion.p>
         </div>
 
@@ -64,11 +65,11 @@ export function Resumo() {
           variants={item}
           className="rounded-2xl bg-panel p-5 text-panel-fg shadow-blood sm:p-6"
         >
-          <span className="eyebrow text-blood">Depois da contratação</span>
+          <span className="eyebrow text-blood">E depois?</span>
           <p className="mt-2 max-w-[62ch] text-[0.85rem] leading-relaxed text-panel-fg/80 sm:text-[0.9rem]">
-            Com o IP e a senha de root em mãos, o próximo passo é acessar a máquina por SSH e
-            instalar o que vai rodar nela. Esse trecho não está neste guia — o documento de origem
-            termina na escolha do sistema operacional.
+            Com a senha e o endereço em mãos, o próximo passo é instalar no servidor os sistemas e
+            sites que vão ficar no ar. Essa parte não está neste guia: o passo a passo original
+            termina aqui, na contratação.
           </p>
         </motion.div>
       </motion.div>

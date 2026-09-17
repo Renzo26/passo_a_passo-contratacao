@@ -6,33 +6,49 @@ import { item, stagger } from '../anim'
 type Plano = {
   nome: string
   preco: string
-  vcpu: string
-  ram: string
-  disco: string
-  banda: string
+  /** Especificações traduzidas: nada de vCPU, NVMe ou largura de banda. */
+  potencia: string
+  memoria: string
+  espaco: string
+  /** O que realmente decide a escolha para quem não é da área. */
+  paraQuem: string
   recomendado?: boolean
 }
 
 /** Os quatro planos como aparecem na página, para comparar sem sair do slide. */
 const PLANOS: Plano[] = [
-  { nome: 'KVM 1', preco: 'R$ 29,99', vcpu: '1 vCPU', ram: '4 GB', disco: '50 GB', banda: '4 TB' },
+  {
+    nome: 'KVM 1',
+    preco: 'R$ 29,99',
+    potencia: '1 processador',
+    memoria: '4 GB de memória',
+    espaco: '50 GB de espaço',
+    paraQuem: 'Para um site simples, sozinho',
+  },
   {
     nome: 'KVM 2',
     preco: 'R$ 43,99',
-    vcpu: '2 vCPU',
-    ram: '8 GB',
-    disco: '100 GB',
-    banda: '8 TB',
+    potencia: '2 processadores',
+    memoria: '8 GB de memória',
+    espaco: '100 GB de espaço',
+    paraQuem: 'Para vários sites e sistemas',
     recomendado: true,
   },
-  { nome: 'KVM 4', preco: 'R$ 59,99', vcpu: '4 vCPU', ram: '16 GB', disco: '200 GB', banda: '16 TB' },
+  {
+    nome: 'KVM 4',
+    preco: 'R$ 59,99',
+    potencia: '4 processadores',
+    memoria: '16 GB de memória',
+    espaco: '200 GB de espaço',
+    paraQuem: 'Para quem já tem muito acesso',
+  },
   {
     nome: 'KVM 8',
     preco: 'R$ 119,99',
-    vcpu: '8 vCPU',
-    ram: '32 GB',
-    disco: '400 GB',
-    banda: '32 TB',
+    potencia: '8 processadores',
+    memoria: '32 GB de memória',
+    espaco: '400 GB de espaço',
+    paraQuem: 'Para empresa grande',
   },
 ]
 
@@ -57,8 +73,8 @@ export function Passo2Plano() {
             variants={item}
             className="max-w-[46ch] text-[0.85rem] leading-relaxed text-muted sm:text-[0.9rem]"
           >
-            É o custo-benefício da linha: 2 vCPU e 8 GB de RAM aguentam vários sistemas em Docker,
-            enquanto o KVM 1 aperta e o KVM 4 só faz sentido com carga real.
+            É o que entrega mais por menos: aguenta vários sites e sistemas ao mesmo tempo. O
+            KVM 1 fica apertado e os maiores só valem a pena se o site já receber muita visita.
           </motion.p>
         </div>
 
@@ -75,11 +91,12 @@ export function Passo2Plano() {
             <Captura
               src="/passos/plano-kvm.png"
               alt="Tabela de planos VPS da Hostinger com KVM 1, KVM 2, KVM 4 e KVM 8"
-              legenda="Clique em “Escolher plano” no card do KVM 2 — o marcado como mais popular."
+              legenda="Clique no botão “Escolher plano” do KVM 2 — o que está marcado como mais popular."
             />
             <p className="text-[0.78rem] leading-relaxed text-muted">
-              Os preços mostrados são promocionais e valem para o primeiro ciclo. O valor de
-              renovação aparece em letra menor logo abaixo do botão — no KVM 2, R$ 77,99/mês.
+              Esses preços são de promoção e valem só na primeira contratação. O valor que você
+              vai pagar quando renovar aparece em letra menor embaixo do botão — no KVM 2,
+              R$ 77,99 por mês.
             </p>
           </motion.div>
         </div>
@@ -126,15 +143,22 @@ function PlanoCard({ plano }: { plano: Plano }) {
         </span>
       </p>
 
-      <ul
-        className={`mt-1 flex flex-col gap-1 text-[0.74rem] leading-snug tabular sm:text-[0.78rem] ${
-          destaque ? 'text-panel-fg/80' : 'text-muted'
+      <p
+        className={`text-[0.78rem] leading-snug font-semibold ${
+          destaque ? 'text-panel-fg' : 'text-ink'
         }`}
       >
-        <li>{plano.vcpu}</li>
-        <li>{plano.ram} de RAM</li>
-        <li>{plano.disco} NVMe</li>
-        <li>{plano.banda} de banda</li>
+        {plano.paraQuem}
+      </p>
+
+      <ul
+        className={`mt-0.5 flex flex-col gap-1 text-[0.74rem] leading-snug tabular sm:text-[0.78rem] ${
+          destaque ? 'text-panel-fg/70' : 'text-muted'
+        }`}
+      >
+        <li>{plano.potencia}</li>
+        <li>{plano.memoria}</li>
+        <li>{plano.espaco}</li>
       </ul>
 
       {!destaque ? (

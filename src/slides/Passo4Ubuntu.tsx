@@ -5,7 +5,7 @@ import { item, stagger } from '../anim'
 
 export function Passo4Ubuntu() {
   return (
-    <SlideChrome eyebrowLeft="Passo 04" eyebrowRight="Sistema operacional">
+    <SlideChrome eyebrowLeft="Passo 04" eyebrowRight="O programa do servidor">
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -17,15 +17,15 @@ export function Passo4Ubuntu() {
             variants={item}
             className="text-[clamp(1.5rem,7vw,2.3rem)] text-ink lg:text-[clamp(1.8rem,3.4vw,2.9rem)]"
           >
-            Em sistema operacional, escolha o <span className="text-blood">Ubuntu</span>
+            Na lista de sistemas, escolha o <span className="text-blood">Ubuntu</span>
           </motion.h2>
 
           <motion.p
             variants={item}
             className="max-w-[46ch] text-[0.85rem] leading-relaxed text-muted sm:text-[0.9rem]"
           >
-            A Hostinger oferece imagens com painel já instalado, mas o Ubuntu limpo é o que dá
-            controle total da máquina.
+            É o programa que faz o servidor funcionar, assim como o Windows faz no seu
+            computador. O Ubuntu é o mais usado para esse tipo de máquina.
           </motion.p>
         </div>
 
@@ -36,14 +36,15 @@ export function Passo4Ubuntu() {
             <Captura
               src="/passos/ubuntu.png"
               alt="Opção Ubuntu na lista de sistemas operacionais da Hostinger"
-              legenda="Na lista de sistemas operacionais, selecione o Ubuntu."
+              legenda="Procure o Ubuntu na lista e clique nele."
             />
 
             <div className="card rounded-2xl p-4 sm:p-5">
-              <h3 className="text-[0.98rem] leading-tight text-ink">Senha e acesso</h3>
+              <h3 className="text-[0.98rem] leading-tight text-ink">Anote a senha e o endereço</h3>
               <p className="mt-1.5 text-[0.78rem] leading-relaxed text-muted sm:text-[0.82rem]">
-                Ao final a Hostinger pede uma senha de root e mostra o IP da máquina. Guarde os dois
-                num gerenciador de senhas — é com eles que você entra por SSH e configura o painel.
+                No fim da contratação a Hostinger pede que você crie uma senha e mostra o endereço
+                do servidor (uma sequência de números). Guarde os dois num lugar seguro: é com eles
+                que se entra na máquina depois.
               </p>
             </div>
           </motion.div>
@@ -51,20 +52,20 @@ export function Passo4Ubuntu() {
           <motion.ul variants={item} className="flex min-w-0 flex-col gap-2.5">
             {[
               {
-                t: 'É o padrão da documentação',
-                d: 'Quase todo tutorial de Docker, Nginx e painel de deploy assume Ubuntu. Sair dele significa traduzir cada comando.',
+                t: 'É o mais usado',
+                d: 'Quase todo tutorial e todo programa que você vai instalar depois já vem pronto para o Ubuntu. Escolher outro dá trabalho à toa.',
               },
               {
-                t: 'Versão LTS',
-                d: 'Escolha uma versão LTS quando houver opção: são as que recebem atualização de segurança por anos.',
+                t: 'Se aparecer “LTS”, prefira',
+                d: 'É a versão mais estável: recebe correções de segurança por muito mais tempo que as outras.',
               },
               {
-                t: 'Sem painel pré-instalado',
-                d: 'Instalar o painel depois, na máquina limpa, evita conflito de portas com o que já vem configurado na imagem.',
+                t: 'Escolha o Ubuntu sozinho',
+                d: 'A Hostinger oferece opções com outros programas já instalados. Deixe de lado: é mais simples instalar depois só o que você for usar.',
               },
               {
-                t: 'Dá para reinstalar',
-                d: 'Se errar, o painel da Hostinger reinstala o sistema do zero — você não perde o plano contratado.',
+                t: 'Errou? Dá para recomeçar',
+                d: 'Se escolher errado, o painel da Hostinger deixa instalar tudo de novo do zero. Você não perde o plano que pagou.',
               },
             ].map((c) => (
               <li

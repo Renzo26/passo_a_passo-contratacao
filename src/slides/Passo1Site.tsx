@@ -32,8 +32,8 @@ export function Passo1Site() {
             variants={item}
             className="max-w-[46ch] text-[0.85rem] leading-relaxed text-muted sm:text-[0.9rem]"
           >
-            É a página de hospedagem VPS — não a de hospedagem compartilhada. É nela que aparecem
-            os planos KVM.
+            Atenção para entrar na página certa: é a de VPS, não a de hospedagem comum. É nela
+            que aparecem os planos com o nome KVM.
           </motion.p>
         </div>
 
@@ -63,16 +63,16 @@ export function Passo1Site() {
         <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
           {[
             {
-              t: 'Por que VPS',
-              d: 'Servidor só seu, com root. É o que permite subir Docker, painéis e vários sistemas na mesma máquina.',
+              t: 'É um computador só seu',
+              d: 'Diferente da hospedagem comum, você não divide a máquina com ninguém. Por isso dá para colocar vários sites e sistemas nela.',
             },
             {
               t: 'Crie a conta',
-              d: 'Dá para entrar com e-mail ou com a conta Google antes de fechar o pedido.',
+              d: 'Em algum momento a Hostinger vai pedir o login. Dá para entrar com e-mail ou direto com a conta do Google.',
             },
             {
-              t: 'Confira a moeda',
-              d: 'A página deve estar em português e em reais (R$). Os preços do guia são os da loja BR.',
+              t: 'Confira os preços',
+              d: 'A página precisa estar em português e com os valores em reais (R$). É assim que os preços deste guia aparecem.',
             },
           ].map((c) => (
             <motion.div key={c.t} variants={item} className="card rounded-2xl p-4 sm:p-5">

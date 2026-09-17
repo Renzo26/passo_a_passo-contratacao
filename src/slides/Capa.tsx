@@ -4,10 +4,10 @@ import { item, stagger } from '../anim'
 
 /** Os quatro passos, anunciados já na capa. */
 const PASSOS = [
-  { n: '01', titulo: 'Acessar o site', resumo: 'Página de VPS da Hostinger' },
-  { n: '02', titulo: 'Escolher o plano', resumo: 'KVM 2 — o custo-benefício' },
-  { n: '03', titulo: 'Definir o período', resumo: 'Mensal, anual ou 2 anos' },
-  { n: '04', titulo: 'Escolher o sistema', resumo: 'Ubuntu' },
+  { n: '01', titulo: 'Abrir o site', resumo: 'A página certa da Hostinger' },
+  { n: '02', titulo: 'Escolher o plano', resumo: 'O KVM 2 é o recomendado' },
+  { n: '03', titulo: 'Escolher o tempo', resumo: 'Mensal, anual ou 2 anos' },
+  { n: '04', titulo: 'Escolher o programa', resumo: 'Ubuntu' },
 ]
 
 export function Capa() {
@@ -36,8 +36,9 @@ export function Capa() {
             variants={item}
             className="max-w-[52ch] text-[0.92rem] leading-relaxed text-ink-soft sm:text-base lg:text-lg"
           >
-            Quatro passos para sair do zero até um servidor pronto para hospedar seus sistemas e
-            sites. Do plano certo ao sistema operacional, sem contratar nada que você não vai usar.
+            Uma VPS é um computador que fica ligado o tempo todo na internet, só seu, e é onde
+            seus sites e sistemas ficam no ar. Em quatro passos você contrata o seu — sem pagar
+            por nada que não vai usar.
           </motion.p>
         </div>
 
